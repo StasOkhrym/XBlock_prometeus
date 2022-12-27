@@ -1,0 +1,13 @@
+setup.py
+simplexblock/__init__.py
+simplexblock/simplexblock.py
+simplexblock/static/README.txt
+simplexblock/static/css/simplexblock.css
+simplexblock/static/html/simplexblock.html
+simplexblock/static/js/src/simplexblock.js
+simplexblock_xblock.egg-info/PKG-INFO
+simplexblock_xblock.egg-info/SOURCES.txt
+simplexblock_xblock.egg-info/dependency_links.txt
+simplexblock_xblock.egg-info/entry_points.txt
+simplexblock_xblock.egg-info/requires.txt
+simplexblock_xblock.egg-info/top_level.txt
