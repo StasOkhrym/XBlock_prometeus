@@ -15,8 +15,10 @@ source venv/bin/activate (Linux and macOS) or
 venv\Scripts\activate (Windows)
 ```
 
-3. Change directory to sdk directory and install requirements:
+3. Download XBlock-SDK, change directory to sdk directory and install requirements:
 ```
+git clone https://github.com/openedx/xblock-sdk.git
+
 cd xblock-sdk
 pip install -r requirements/base.txt
 ```
