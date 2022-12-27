@@ -5,10 +5,10 @@ from web_fragments.fragment import Fragment
 from xblock.core import XBlock
 from xblock.fields import Scope, Integer, String
 from xblockutils.resources import ResourceLoader
-from xblockutils.studio_editable import StudioContainerXBlockMixin
+from xblockutils.studio_editable import StudioEditableXBlockMixin
 
 
-class SimpleXBlock(StudioContainerXBlockMixin, XBlock):
+class SimpleXBlock(StudioEditableXBlockMixin, XBlock):
     title = String(
         default="Title",
     )
@@ -36,7 +36,7 @@ class SimpleXBlock(StudioContainerXBlockMixin, XBlock):
         context = {
             "title": self.title,
             "content": self.content,
-            "count": self.count
+            "count": self.count,
         }
 
         loader = ResourceLoader(__name__)
@@ -46,17 +46,19 @@ class SimpleXBlock(StudioContainerXBlockMixin, XBlock):
 
         frag = Fragment(html)
         frag.add_css(self.resource_string("static/css/simplexblock.css"))
-        frag.add_javascript(self.resource_string("static/js/src/simplexblock.js"))
+        frag.add_javascript(
+            self.resource_string("static/js/src/simplexblock.js")
+        )
         frag.initialize_js("SimpleXBlock")
 
         return frag
 
     @XBlock.json_handler
-    def increment_count(self, data, suffix=''):
+    def increment_count(self, data, suffix=""):
         """
         An example handler, which increments the data.
         """
-        assert data['hello'] == 'world'
+        assert data["hello"] == "world"
 
         self.count += 1
         return {"count": self.count}
